@@ -10,6 +10,7 @@ module.exports = {
     })
   },
   create: function(req, res) {
+    console.log(req.body);
     var book = new Book(req.body);
     book.save(function (err, result) {
       if (err) {
