@@ -4,7 +4,7 @@ module.exports = {
   all: function(req, res) {
     Transaction.find(function (err, transactions) {
       if (err) {
-        res.status(500).send({err: err})
+        res.status(500).send({err: err.message})
       }
       res.status(200).send(transactions)
     })
@@ -13,7 +13,7 @@ module.exports = {
     var transaction = new Transaction(req.body);
     transaction.save(function (err, result) {
       if (err) {
-        res.status(500).send({err: err})
+        res.status(500).send({err: err.message})
       }
       res.status(201).send(result)
     });
@@ -23,7 +23,7 @@ module.exports = {
       $set: req.body
     }, function(err, result) {
       if (err) {
-        res.status(500).send({err: err})
+        res.status(500).send({err: err.message})
       }
       res.status(200).send(result)
     });
@@ -31,7 +31,7 @@ module.exports = {
   delete: function(req, res) {
     Transaction.remove({ _id: req.params.id }, function (err, result) {
       if (err) {
-        res.status(500).send({err: err})
+        res.status(500).send({err: err.message})
       }
       res.status(200).send(result)
     })
