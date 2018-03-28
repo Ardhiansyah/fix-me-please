@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express;
+const app = express();
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/api-crud-mongoose', (err) => {
